@@ -538,49 +538,56 @@ export default function App() {
              <div className="clay-shape-leaf hidden md:block right-[28%] bottom-[10%]"></div>
           </section>
 
-          {/* Stats Cards Grid */}
-          <section id="about" className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-             {STATS.map((card) => (
-               <div key={card.id} className={`clay-card ${card.tint} p-4 sm:p-5 flex flex-col justify-between h-36 sm:h-44 cursor-pointer group`}>
-                 <div className="flex justify-between items-start relative z-10">
-                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 flex items-center justify-center shadow-sm backdrop-blur-sm border border-white/10">
-                     <card.icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: card.trendColor }} />
-                   </div>
-                   <div className={`flex items-center gap-1 font-extrabold text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/10 text-[#e8e0f5]`}>
-                     {card.trend}
-                   </div>
-                 </div>
-                 
-                 <div className="relative z-10 mt-3">
-                   <p className="text-[#8f7eaf] font-bold text-[10px] sm:text-xs mb-1">{card.title}</p>
-                   <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">{card.value}</h3>
-                 </div>
-
-                 {/* Mock SVG Trendline */}
-                 <div className="absolute bottom-0 left-0 w-full h-24 opacity-60 pointer-events-none">
-                   <svg viewBox="0 0 100 50" fill="none" className="w-full h-full" preserveAspectRatio="none">
-                     <path 
-                       d={card.path} 
-                       stroke={`url(#gradient-${card.id})`} 
-                       strokeWidth="4" 
-                       strokeLinecap="round" 
-                       strokeLinejoin="round" 
-                     />
-                     <defs>
-                       <linearGradient id={`gradient-${card.id}`} x1="0" y1="0" x2="1" y2="0">
-                         <stop offset="0%" stopColor={card.trendColor} stopOpacity="0.1" />
-                         <stop offset="100%" stopColor={card.trendColor} stopOpacity="1" />
-                       </linearGradient>
-                     </defs>
-                   </svg>
-                 </div>
-               </div>
-             ))}
-          </section>
-
-          {/* Skills & Projects Section */}
-          <section id="projects" className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+          {/* About Section */}
+          <section id="about" className="flex flex-col gap-4 sm:gap-6">
+            <div className="flex items-center gap-2">
+              <Heart className="w-5 h-5 text-[#a78bfa]" />
+              <h2 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">About Me</h2>
+            </div>
+            <p className="text-[#8f7eaf] font-bold text-xs sm:text-sm leading-relaxed max-w-2xl">
+              Passionate UI/UX designer & developer crafting beautiful digital experiences. Here's a snapshot of my journey so far.
+            </p>
             
+            {/* Stats Cards Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+              {STATS.map((card) => (
+                <div key={card.id} className={`clay-card ${card.tint} p-4 sm:p-5 flex flex-col justify-between h-36 sm:h-44 cursor-pointer group`}>
+                  <div className="flex justify-between items-start relative z-10">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 flex items-center justify-center shadow-sm backdrop-blur-sm border border-white/10">
+                      <card.icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: card.trendColor }} />
+                    </div>
+                    <div className={`flex items-center gap-1 font-extrabold text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/10 text-[#e8e0f5]`}>
+                      {card.trend}
+                    </div>
+                  </div>
+                  
+                  <div className="relative z-10 mt-3">
+                    <p className="text-[#8f7eaf] font-bold text-[10px] sm:text-xs mb-1">{card.title}</p>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">{card.value}</h3>
+                  </div>
+
+                  {/* Mock SVG Trendline */}
+                  <div className="absolute bottom-0 left-0 w-full h-24 opacity-60 pointer-events-none">
+                    <svg viewBox="0 0 100 50" fill="none" className="w-full h-full" preserveAspectRatio="none">
+                      <path 
+                        d={card.path} 
+                        stroke={`url(#gradient-${card.id})`} 
+                        strokeWidth="4" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                      />
+                      <defs>
+                        <linearGradient id={`gradient-${card.id}`} x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stopColor={card.trendColor} stopOpacity="0.1" />
+                          <stop offset="100%" stopColor={card.trendColor} stopOpacity="1" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Skills Section */}
             <div className="clay p-5 sm:p-6 flex flex-col">
               <div className="flex justify-between items-center mb-6">
@@ -608,39 +615,47 @@ export default function App() {
                 ))}
               </div>
             </div>
+          </section>
 
-            {/* Projects Section */}
-            <div className="clay p-5 sm:p-6 lg:col-span-2 flex flex-col">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-lg sm:text-xl font-black text-[#e8e0f5]">Featured Projects</h3>
-                <button className="clay-sm clay-interactive px-3 py-1.5 text-xs font-bold text-[#8f7eaf] flex items-center gap-1.5">
-                  View All <ExternalLink className="w-3 h-3" />
-                </button>
+          {/* Projects Section */}
+          <section id="projects" className="flex flex-col gap-4 sm:gap-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Briefcase className="w-5 h-5 text-[#a78bfa]" />
+                <h2 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">My Projects</h2>
               </div>
-              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {PROJECTS.map((project) => (
-                  <div key={project.id} className="project-card clay-sm clay-interactive overflow-hidden flex flex-col group cursor-pointer">
-                    <div className="relative h-28 sm:h-32 overflow-hidden rounded-t-[16px]">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="project-img w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                      <div 
-                        className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full text-white text-[10px] font-extrabold backdrop-blur-sm"
-                        style={{ backgroundColor: `${project.color}cc` }}
-                      >
-                        {project.category}
-                      </div>
-                    </div>
-                    <div className="p-3 flex flex-col flex-1">
-                      <h4 className="font-extrabold text-xs sm:text-sm text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{project.title}</h4>
-                      <p className="text-[10px] sm:text-[11px] text-[#8f7eaf] font-bold mt-1 leading-relaxed">{project.description}</p>
+              <button className="clay-sm clay-interactive px-3 py-1.5 text-xs font-bold text-[#8f7eaf] flex items-center gap-1.5">
+                View All <ExternalLink className="w-3 h-3" />
+              </button>
+            </div>
+            <p className="text-[#8f7eaf] font-bold text-xs sm:text-sm leading-relaxed max-w-2xl">
+              A collection of my recent work showcasing UI/UX design, web development, and creative problem-solving.
+            </p>
+            
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {PROJECTS.map((project) => (
+                <div key={project.id} className="project-card clay-sm clay-interactive overflow-hidden flex flex-col group cursor-pointer">
+                  <div className="relative h-28 sm:h-32 overflow-hidden rounded-t-[16px]">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="project-img w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div 
+                      className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full text-white text-[10px] font-extrabold backdrop-blur-sm"
+                      style={{ backgroundColor: `${project.color}cc` }}
+                    >
+                      {project.category}
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div className="p-3 flex flex-col flex-1">
+                    <h4 className="font-extrabold text-xs sm:text-sm text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{project.title}</h4>
+                    <p className="text-[10px] sm:text-[11px] text-[#8f7eaf] font-bold mt-1 leading-relaxed">{project.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 
