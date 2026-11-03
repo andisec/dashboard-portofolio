@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Code2, Palette, Camera,
-  Search, Bell, Home, 
-  Award, Activity, Target, Settings,
+  Home, 
+  Award, Target,
   ArrowUpRight, ExternalLink, Menu, X,
   Github, Linkedin, Mail, Heart,
   Briefcase, GraduationCap, Star, Sparkles,
@@ -420,50 +420,50 @@ export default function App() {
       <style dangerouslySetInnerHTML={{ __html: CLAY_CSS }} />
 
       {/* --- SIDEBAR (Desktop) --- */}
-      <aside className="hidden lg:flex w-[320px] h-full p-6 flex-col z-20">
-        <div className="clay w-full h-full flex flex-col p-6 relative">
+      <aside className="hidden lg:flex w-[280px] h-full p-4 flex-col z-20">
+        <div className="clay w-full h-full flex flex-col p-5 relative">
           
           {/* User Profile Area */}
-          <div className="flex flex-col items-center mb-10 mt-6 text-center">
-            <div className="w-24 h-24 rounded-[32px] clay-sm flex items-center justify-center mb-5 p-2">
+          <div className="flex flex-col items-center mb-8 mt-4 text-center">
+            <div className="w-20 h-20 rounded-[28px] clay-sm flex items-center justify-center mb-4 p-1.5">
               <img 
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80" 
                 alt="Mia Profile" 
-                className="w-full h-full rounded-[24px] object-cover"
+                className="w-full h-full rounded-[22px] object-cover"
               />
             </div>
-            <h2 className="text-2xl font-black text-[#e8e0f5] tracking-tight">Mia Chen</h2>
-            <p className="text-[15px] font-bold text-[#8f7eaf] mt-1">UI/UX Designer & Developer</p>
+            <h2 className="text-xl font-black text-[#e8e0f5] tracking-tight">Mia Chen</h2>
+            <p className="text-sm font-bold text-[#8f7eaf] mt-1">UI/UX Designer & Developer</p>
             
             {/* Social Links */}
-            <div className="flex items-center gap-3 mt-4">
-              <a href="#" className="w-10 h-10 rounded-full clay-inset flex items-center justify-center clay-interactive">
+            <div className="flex items-center gap-2.5 mt-3">
+              <a href="#" className="w-9 h-9 rounded-full clay-inset flex items-center justify-center clay-interactive">
                 <Github className="w-4 h-4 text-[#e8e0f5]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full clay-inset flex items-center justify-center clay-interactive">
+              <a href="#" className="w-9 h-9 rounded-full clay-inset flex items-center justify-center clay-interactive">
                 <Linkedin className="w-4 h-4 text-[#e8e0f5]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full clay-inset flex items-center justify-center clay-interactive">
+              <a href="#" className="w-9 h-9 rounded-full clay-inset flex items-center justify-center clay-interactive">
                 <Mail className="w-4 h-4 text-[#e8e0f5]" />
               </a>
             </div>
           </div>
           
           {/* Navigation Links */}
-          <nav className="flex flex-col gap-5 flex-1 w-full px-2">
+          <nav className="flex flex-col gap-3 flex-1 w-full px-1">
             {NAV_LINKS.map((item) => {
               const isActive = activeNav === item.id;
               return (
                 <button 
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center gap-4 px-6 py-4 rounded-[24px] font-extrabold text-[16px] transition-all duration-300 ${
+                  className={`flex items-center gap-3 px-5 py-3 rounded-[20px] font-extrabold text-sm transition-all duration-300 ${
                     isActive 
                       ? 'clay-inset text-[#e8e0f5]' 
                       : 'text-[#8f7eaf] hover:text-[#e8e0f5]'
                   }`}
                 >
-                  <item.icon className={`w-6 h-6 ${isActive ? 'text-[#a78bfa]' : ''}`} />
+                  <item.icon className={`w-5 h-5 ${isActive ? 'text-[#a78bfa]' : ''}`} />
                   {item.label}
                 </button>
               );
@@ -471,10 +471,10 @@ export default function App() {
           </nav>
 
           {/* Bottom Sidebar - Availability Status */}
-          <div className="mt-auto pt-6 px-2">
-            <div className="clay-sm w-full py-4 rounded-[24px] flex items-center justify-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-              <span className="font-extrabold text-[#e8e0f5] text-sm">Available for Work</span>
+          <div className="mt-auto pt-4 px-1">
+            <div className="clay-sm w-full py-3 rounded-[18px] flex items-center justify-center gap-2.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+              <span className="font-extrabold text-[#e8e0f5] text-xs">Available for Work</span>
             </div>
           </div>
         </div>
@@ -484,61 +484,52 @@ export default function App() {
       <main className="flex-1 flex flex-col h-full relative overflow-y-auto overflow-x-hidden">
         
         {/* Header */}
-        <header className="flex items-center justify-between p-6 lg:px-10 lg:pt-8 z-10 sticky top-0 bg-[#1a1525]/80 backdrop-blur-md">
-          <div className="flex items-center gap-4 w-full max-w-lg">
+        <header className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 z-10 sticky top-0 bg-[#1a1525]/80 backdrop-blur-md">
+          <div className="flex items-center gap-3">
             {/* Mobile Menu Toggle */}
             <button 
-              className="lg:hidden clay-sm clay-pill p-4 clay-interactive text-[#e8e0f5]"
+              className="lg:hidden clay-sm clay-pill p-3 clay-interactive text-[#e8e0f5]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <Menu className="w-5 h-5" />
             </button>
 
-            {/* Search Bar */}
-            <div className="clay-inset flex items-center px-6 py-4 flex-1">
-              <Search className="w-5 h-5 text-[#8f7eaf]" />
-              <input 
-                type="text" 
-                placeholder="Search my work..." 
-                className="bg-transparent border-none outline-none flex-1 ml-4 text-[#e8e0f5] placeholder-[#8f7eaf] font-bold text-[15px]"
-              />
-            </div>
+            {/* Logo / Title */}
+            <h1 className="text-lg sm:text-xl font-black text-[#e8e0f5] tracking-tight">
+              Mia<span className="text-[#a78bfa]">.</span>Portfolio
+            </h1>
           </div>
 
-          <div className="flex items-center gap-5 ml-4">
-            <button className="clay-sm clay-pill p-4 clay-interactive text-[#8f7eaf] hover:text-[#e8e0f5]">
-              <Bell className="w-6 h-6" />
-            </button>
-            <button className="lg:hidden clay-sm clay-pill p-2 clay-interactive">
-              <img 
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80" 
-                className="w-10 h-10 rounded-full object-cover" 
-                alt="Mia" 
-              />
-            </button>
-          </div>
+          {/* Mobile Profile */}
+          <button className="lg:hidden clay-sm clay-pill p-1.5 clay-interactive">
+            <img 
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80" 
+              className="w-9 h-9 rounded-full object-cover" 
+              alt="Mia" 
+            />
+          </button>
         </header>
 
         {/* Portfolio Content Container */}
-        <div className="px-4 sm:px-6 lg:px-10 pb-16 pt-4 flex-1 max-w-7xl w-full mx-auto">
+        <div className="px-3 sm:px-4 lg:px-6 pb-12 pt-2 flex-1 max-w-6xl w-full mx-auto space-y-6 sm:space-y-8">
           
           {/* Hero Banner */}
-          <section id="home" className="clay w-full p-6 sm:p-8 lg:p-14 relative overflow-hidden flex flex-col justify-center min-h-[260px]">
-             <div className="flex items-center gap-2 mb-3 z-10">
-               <Sparkles className="w-5 h-5 text-[#a78bfa]" />
-               <span className="text-[#a78bfa] font-extrabold text-sm">CREATIVE PORTFOLIO</span>
+          <section id="home" className="clay w-full p-5 sm:p-6 lg:p-10 relative overflow-hidden flex flex-col justify-center min-h-[200px] sm:min-h-[240px]">
+             <div className="flex items-center gap-2 mb-2 z-10">
+               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#a78bfa]" />
+               <span className="text-[#a78bfa] font-extrabold text-xs sm:text-sm">CREATIVE PORTFOLIO</span>
              </div>
-             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#e8e0f5] z-10 mb-4 tracking-tight leading-tight">
+             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#e8e0f5] z-10 mb-3 tracking-tight leading-tight">
                Crafting Digital <br className="sm:hidden"/>Experiences ✨
              </h1>
-             <p className="text-[#8f7eaf] font-bold text-base sm:text-lg z-10 max-w-md leading-relaxed">
+             <p className="text-[#8f7eaf] font-bold text-sm sm:text-base z-10 max-w-md leading-relaxed">
                I design & build beautiful interfaces that users love. Let's create something amazing together.
              </p>
              
              {/* CTA Button */}
-             <button className="mt-6 z-10 clay-sm clay-interactive px-6 sm:px-8 py-4 rounded-[20px] font-extrabold text-white bg-gradient-to-r from-[#a78bfa] to-[#7c3aed] shadow-[0_8px_20px_rgba(124,58,237,0.4)] flex items-center gap-2 w-fit text-sm sm:text-base">
+             <button className="mt-4 z-10 clay-sm clay-interactive px-5 sm:px-6 py-3 rounded-[16px] font-extrabold text-white bg-gradient-to-r from-[#a78bfa] to-[#7c3aed] shadow-[0_8px_20px_rgba(124,58,237,0.4)] flex items-center gap-2 w-fit text-xs sm:text-sm">
                View My Work
-               <ArrowUpRight className="w-5 h-5" />
+               <ArrowUpRight className="w-4 h-4" />
              </button>
              
              {/* 3D Soft CSS Shapes */}
@@ -548,21 +539,21 @@ export default function App() {
           </section>
 
           {/* Stats Cards Grid */}
-          <section id="about" className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-10">
+          <section id="about" className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
              {STATS.map((card) => (
-               <div key={card.id} className={`clay-card ${card.tint} p-5 sm:p-7 flex flex-col justify-between h-48 sm:h-56 cursor-pointer group`}>
+               <div key={card.id} className={`clay-card ${card.tint} p-4 sm:p-5 flex flex-col justify-between h-36 sm:h-44 cursor-pointer group`}>
                  <div className="flex justify-between items-start relative z-10">
-                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/10 flex items-center justify-center shadow-sm backdrop-blur-sm border border-white/10">
-                     <card.icon className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: card.trendColor }} />
+                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 flex items-center justify-center shadow-sm backdrop-blur-sm border border-white/10">
+                     <card.icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: card.trendColor }} />
                    </div>
-                   <div className={`flex items-center gap-1 font-extrabold text-xs px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[#e8e0f5]`}>
+                   <div className={`flex items-center gap-1 font-extrabold text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/10 text-[#e8e0f5]`}>
                      {card.trend}
                    </div>
                  </div>
                  
-                 <div className="relative z-10 mt-4">
-                   <p className="text-[#8f7eaf] font-bold text-xs sm:text-sm mb-1">{card.title}</p>
-                   <h3 className="text-2xl sm:text-3xl font-black text-[#e8e0f5]">{card.value}</h3>
+                 <div className="relative z-10 mt-3">
+                   <p className="text-[#8f7eaf] font-bold text-[10px] sm:text-xs mb-1">{card.title}</p>
+                   <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">{card.value}</h3>
                  </div>
 
                  {/* Mock SVG Trendline */}
@@ -588,22 +579,22 @@ export default function App() {
           </section>
 
           {/* Skills & Projects Section */}
-          <section id="projects" className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          <section id="projects" className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             
             {/* Skills Section */}
-            <div className="clay p-6 sm:p-8 flex flex-col">
-              <div className="flex justify-between items-center mb-8">
-                <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">My Skills</h3>
-                <Palette className="w-6 h-6 text-[#a78bfa]" />
+            <div className="clay p-5 sm:p-6 flex flex-col">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-lg sm:text-xl font-black text-[#e8e0f5]">My Skills</h3>
+                <Palette className="w-5 h-5 text-[#a78bfa]" />
               </div>
-              <div className="flex-1 flex flex-col gap-5">
+              <div className="flex-1 flex flex-col gap-4">
                 {SKILLS.map((skill, i) => (
-                  <div key={i} className="flex flex-col gap-2">
+                  <div key={i} className="flex flex-col gap-1.5">
                     <div className="flex justify-between items-center">
-                      <span className="font-extrabold text-sm text-[#e8e0f5]">{skill.name}</span>
-                      <span className="font-bold text-xs text-[#8f7eaf]">{skill.level}%</span>
+                      <span className="font-extrabold text-xs sm:text-sm text-[#e8e0f5]">{skill.name}</span>
+                      <span className="font-bold text-[10px] sm:text-xs text-[#8f7eaf]">{skill.level}%</span>
                     </div>
-                    <div className="clay-inset h-4 rounded-full p-1 flex items-center">
+                    <div className="clay-inset h-3 rounded-full p-0.5 flex items-center">
                       <div 
                         className="h-full rounded-full skill-bar-fill transition-all duration-1000"
                         style={{ 
@@ -619,17 +610,17 @@ export default function App() {
             </div>
 
             {/* Projects Section */}
-            <div className="clay p-6 sm:p-8 lg:col-span-2 min-h-[340px] flex flex-col">
-              <div className="flex justify-between items-center mb-8">
-                <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">Featured Projects</h3>
-                <button className="clay-sm clay-interactive px-4 py-2 text-sm font-bold text-[#8f7eaf] flex items-center gap-2">
+            <div className="clay p-5 sm:p-6 lg:col-span-2 flex flex-col">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-lg sm:text-xl font-black text-[#e8e0f5]">Featured Projects</h3>
+                <button className="clay-sm clay-interactive px-3 py-1.5 text-xs font-bold text-[#8f7eaf] flex items-center gap-1.5">
                   View All <ExternalLink className="w-3 h-3" />
                 </button>
               </div>
-              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {PROJECTS.map((project) => (
                   <div key={project.id} className="project-card clay-sm clay-interactive overflow-hidden flex flex-col group cursor-pointer">
-                    <div className="relative h-32 overflow-hidden rounded-t-[18px]">
+                    <div className="relative h-28 sm:h-32 overflow-hidden rounded-t-[16px]">
                       <img 
                         src={project.image} 
                         alt={project.title}
@@ -637,15 +628,15 @@ export default function App() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                       <div 
-                        className="absolute top-3 left-3 px-3 py-1 rounded-full text-white text-xs font-extrabold backdrop-blur-sm"
+                        className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full text-white text-[10px] font-extrabold backdrop-blur-sm"
                         style={{ backgroundColor: `${project.color}cc` }}
                       >
                         {project.category}
                       </div>
                     </div>
-                    <div className="p-4 flex flex-col flex-1">
-                      <h4 className="font-extrabold text-[15px] text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{project.title}</h4>
-                      <p className="text-[12px] text-[#8f7eaf] font-bold mt-1 leading-relaxed">{project.description}</p>
+                    <div className="p-3 flex flex-col flex-1">
+                      <h4 className="font-extrabold text-xs sm:text-sm text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{project.title}</h4>
+                      <p className="text-[10px] sm:text-[11px] text-[#8f7eaf] font-bold mt-1 leading-relaxed">{project.description}</p>
                     </div>
                   </div>
                 ))}
@@ -654,34 +645,34 @@ export default function App() {
           </section>
 
           {/* Certificates Section */}
-          <section id="certificates" className="mt-10">
-            <div className="clay p-6 sm:p-8">
-              <div className="flex justify-between items-center mb-8">
+          <section id="certificates">
+            <div className="clay p-5 sm:p-6">
+              <div className="flex justify-between items-center mb-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5]">Certificates & Awards</h3>
-                  <p className="text-[#8f7eaf] font-bold text-sm mt-1">Professional certifications I've earned</p>
+                  <h3 className="text-lg sm:text-xl font-black text-[#e8e0f5]">Certificates & Awards</h3>
+                  <p className="text-[#8f7eaf] font-bold text-xs sm:text-sm mt-1">Professional certifications I've earned</p>
                 </div>
-                <Award className="w-8 h-8 text-[#a78bfa]" />
+                <Award className="w-6 h-6 sm:w-7 sm:h-7 text-[#a78bfa]" />
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {CERTIFICATES.map((cert) => (
-                  <div key={cert.id} className="cert-card clay-sm p-5 flex flex-col gap-4 group cursor-pointer">
+                  <div key={cert.id} className="cert-card clay-sm p-4 flex flex-col gap-3 group cursor-pointer">
                     <div className="flex items-start justify-between">
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ backgroundColor: `${cert.color}20`, border: `2px solid ${cert.color}40` }}>
-                        <cert.icon className="w-6 h-6" style={{ color: cert.color }} />
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${cert.color}20`, border: `2px solid ${cert.color}40` }}>
+                        <cert.icon className="w-5 h-5" style={{ color: cert.color }} />
                       </div>
-                      <CheckCircle className="w-5 h-5 text-emerald-400" />
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
                     </div>
                     
                     <div className="flex-1">
-                      <h4 className="font-extrabold text-[15px] text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{cert.title}</h4>
-                      <p className="text-[13px] text-[#8f7eaf] font-bold mt-1">{cert.issuer}</p>
-                      <p className="text-[11px] text-[#8f7eaf] font-bold mt-1">Issued: {cert.date}</p>
-                      <p className="text-[10px] text-[#8f7eaf] font-mono mt-2 opacity-70">ID: {cert.credential}</p>
+                      <h4 className="font-extrabold text-sm text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{cert.title}</h4>
+                      <p className="text-xs text-[#8f7eaf] font-bold mt-1">{cert.issuer}</p>
+                      <p className="text-[10px] text-[#8f7eaf] font-bold mt-0.5">Issued: {cert.date}</p>
+                      <p className="text-[9px] text-[#8f7eaf] font-mono mt-1.5 opacity-70">ID: {cert.credential}</p>
                     </div>
 
-                    <button className="clay-sm clay-interactive px-4 py-2 rounded-xl text-xs font-extrabold text-[#e8e0f5] flex items-center justify-center gap-2 mt-auto">
+                    <button className="clay-sm clay-interactive px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-extrabold text-[#e8e0f5] flex items-center justify-center gap-1.5 mt-auto">
                       <Download className="w-3 h-3" />
                       View Certificate
                     </button>
@@ -692,20 +683,20 @@ export default function App() {
           </section>
 
           {/* Experience & Contact Section */}
-          <section id="contact" className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <section id="contact" className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             
             {/* Experience Timeline */}
-            <div className="clay p-6 sm:p-8 flex flex-col">
-              <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5] mb-8">Experience</h3>
-              <div className="flex-1 flex flex-col gap-5">
+            <div className="clay p-5 sm:p-6 flex flex-col">
+              <h3 className="text-lg sm:text-xl font-black text-[#e8e0f5] mb-5">Experience</h3>
+              <div className="flex-1 flex flex-col gap-3">
                  {EXPERIENCE.map((exp, i) => (
-                   <div key={i} className="flex items-center gap-5 p-4 rounded-[24px] clay-interactive hover:clay-sm group">
-                     <div className="w-14 h-14 rounded-[20px] clay-inset flex items-center justify-center bg-white/5 border border-white/10">
-                       <exp.icon className={`w-6 h-6 ${exp.color}`} />
+                   <div key={i} className="flex items-center gap-4 p-3 rounded-[20px] clay-interactive hover:clay-sm group">
+                     <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[16px] clay-inset flex items-center justify-center bg-white/5 border border-white/10 flex-shrink-0">
+                       <exp.icon className={`w-5 h-5 ${exp.color}`} />
                      </div>
                      <div>
-                       <p className="font-extrabold text-[16px] text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{exp.title}</p>
-                       <p className="text-[13px] text-[#8f7eaf] font-bold mt-1">{exp.time}</p>
+                       <p className="font-extrabold text-sm sm:text-[15px] text-[#e8e0f5] group-hover:text-[#a78bfa] transition-colors">{exp.title}</p>
+                       <p className="text-[11px] sm:text-xs text-[#8f7eaf] font-bold mt-0.5">{exp.time}</p>
                      </div>
                    </div>
                  ))}
@@ -713,43 +704,43 @@ export default function App() {
             </div>
 
             {/* Contact Card */}
-            <div className="clay p-6 sm:p-8 flex flex-col">
-              <h3 className="text-xl sm:text-2xl font-black text-[#e8e0f5] mb-4">Let's Work Together</h3>
-              <p className="text-[#8f7eaf] font-bold text-sm mb-6 leading-relaxed">
+            <div className="clay p-5 sm:p-6 flex flex-col">
+              <h3 className="text-lg sm:text-xl font-black text-[#e8e0f5] mb-3">Let's Work Together</h3>
+              <p className="text-[#8f7eaf] font-bold text-xs sm:text-sm mb-4 leading-relaxed">
                 Have a project in mind? I'd love to hear about it. Drop me a message and let's create something beautiful.
               </p>
               
-              <div className="flex flex-col gap-4 flex-1">
-                <div className="clay-inset flex items-center px-5 py-4 rounded-2xl">
-                  <Mail className="w-5 h-5 text-[#a78bfa] mr-3" />
-                  <span className="text-[#e8e0f5] font-bold text-sm">mia.chen@email.com</span>
+              <div className="flex flex-col gap-3 flex-1">
+                <div className="clay-inset flex items-center px-4 py-3 rounded-xl">
+                  <Mail className="w-4 h-4 text-[#a78bfa] mr-2.5" />
+                  <span className="text-[#e8e0f5] font-bold text-xs sm:text-sm">mia.chen@email.com</span>
                 </div>
-                <div className="clay-inset flex items-center px-5 py-4 rounded-2xl">
-                  <Target className="w-5 h-5 text-[#f472b6] mr-3" />
-                  <span className="text-[#e8e0f5] font-bold text-sm">San Francisco, CA</span>
+                <div className="clay-inset flex items-center px-4 py-3 rounded-xl">
+                  <Target className="w-4 h-4 text-[#f472b6] mr-2.5" />
+                  <span className="text-[#e8e0f5] font-bold text-xs sm:text-sm">San Francisco, CA</span>
                 </div>
               </div>
 
-              <button className="mt-6 clay-sm clay-interactive px-6 py-4 rounded-[20px] font-extrabold text-white bg-gradient-to-r from-[#a78bfa] to-[#7c3aed] shadow-[0_8px_20px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2 w-full">
-                <Mail className="w-5 h-5" />
+              <button className="mt-4 clay-sm clay-interactive px-5 py-3 rounded-[16px] font-extrabold text-white bg-gradient-to-r from-[#a78bfa] to-[#7c3aed] shadow-[0_8px_20px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2 w-full text-sm">
+                <Mail className="w-4 h-4" />
                 Send Message
               </button>
             </div>
           </section>
 
           {/* Testimonial / Quote Section */}
-          <div className="mt-10 clay p-6 sm:p-8 lg:p-12 text-center relative overflow-hidden">
-            <div className="clay-shape-coin hidden sm:block" style={{ width: '50px', height: '50px', left: '10%', top: '20%' }}></div>
-            <div className="clay-shape-leaf hidden sm:block" style={{ width: '45px', height: '45px', right: '10%', bottom: '20%' }}></div>
+          <div className="clay p-6 sm:p-8 lg:p-10 text-center relative overflow-hidden">
+            <div className="clay-shape-coin hidden sm:block" style={{ width: '40px', height: '40px', left: '10%', top: '20%' }}></div>
+            <div className="clay-shape-leaf hidden sm:block" style={{ width: '35px', height: '35px', right: '10%', bottom: '20%' }}></div>
             
             <div className="relative z-10">
-              <div className="w-16 h-16 rounded-full clay-inset mx-auto flex items-center justify-center mb-6">
-                <Heart className="w-7 h-7 text-rose-400" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full clay-inset mx-auto flex items-center justify-center mb-4">
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-rose-400" />
               </div>
-              <p className="text-lg sm:text-xl lg:text-2xl font-extrabold text-[#e8e0f5] max-w-2xl mx-auto leading-relaxed italic">
+              <p className="text-base sm:text-lg lg:text-xl font-extrabold text-[#e8e0f5] max-w-2xl mx-auto leading-relaxed italic">
                 "Design is not just what it looks like and feels like. Design is how it works."
               </p>
-              <p className="text-[#8f7eaf] font-bold mt-4">— Steve Jobs</p>
+              <p className="text-[#8f7eaf] font-bold mt-3 text-sm">— Steve Jobs</p>
             </div>
           </div>
         </div>
@@ -758,37 +749,37 @@ export default function App() {
       {/* --- MOBILE MENU OVERLAY --- */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex items-center justify-center bg-[#1a1525]/95 backdrop-blur-lg">
-          <div className="clay w-[85%] max-w-sm p-8 flex flex-col items-center gap-6">
+          <div className="clay w-[85%] max-w-sm p-6 flex flex-col items-center gap-4">
             <button 
-              className="absolute top-6 right-6 clay-sm clay-pill p-4 clay-interactive"
+              className="absolute top-4 right-4 clay-sm clay-pill p-3 clay-interactive"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X className="w-5 h-5 text-[#e8e0f5]" />
             </button>
             
-            <div className="w-20 h-20 rounded-[28px] clay-sm flex items-center justify-center p-2 mb-2">
+            <div className="w-16 h-16 rounded-[24px] clay-sm flex items-center justify-center p-1.5 mb-1">
               <img 
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80" 
                 alt="Mia" 
-                className="w-full h-full rounded-[22px] object-cover"
+                className="w-full h-full rounded-[20px] object-cover"
               />
             </div>
-            <h2 className="text-xl font-black text-[#e8e0f5]">Mia Chen</h2>
+            <h2 className="text-lg font-black text-[#e8e0f5]">Mia Chen</h2>
             
-            <nav className="flex flex-col gap-4 w-full mt-4">
+            <nav className="flex flex-col gap-3 w-full mt-2">
               {NAV_LINKS.map((item) => {
                 const isActive = activeNav === item.id;
                 return (
                   <button 
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`flex items-center gap-4 px-6 py-4 rounded-[24px] font-extrabold text-[16px] transition-all duration-300 ${
+                    className={`flex items-center gap-3 px-5 py-3 rounded-[18px] font-extrabold text-sm transition-all duration-300 ${
                       isActive 
                         ? 'clay-inset text-[#e8e0f5]' 
                         : 'text-[#8f7eaf]'
                     }`}
                   >
-                    <item.icon className={`w-6 h-6 ${isActive ? 'text-[#a78bfa]' : ''}`} />
+                    <item.icon className={`w-5 h-5 ${isActive ? 'text-[#a78bfa]' : ''}`} />
                     {item.label}
                   </button>
                 );
