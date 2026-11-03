@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { 
   LayoutDashboard, Code2, Palette, Camera,
-  Search, Bell, Home, BarChart2, 
+  Search, Bell, Home, 
   Award, Activity, Target, Settings,
   ArrowUpRight, ExternalLink, Menu,
   Github, Linkedin, Mail, Heart,
-  Briefcase, GraduationCap, Star, Sparkles,
-  Users
+  Briefcase, GraduationCap, Star, Sparkles
 } from 'lucide-react';
 
 // ==========================================
@@ -401,7 +400,7 @@ export default function App() {
         </header>
 
         {/* Portfolio Content Container */}
-        <div className="px-6 lg:px-10 pb-40 pt-4 flex-1 max-w-7xl w-full mx-auto">
+        <div className="px-6 lg:px-10 pb-16 pt-4 flex-1 max-w-7xl w-full mx-auto">
           
           {/* Hero Banner */}
           <div className="clay w-full p-8 lg:p-14 relative overflow-hidden flex flex-col justify-center min-h-[260px]">
@@ -598,45 +597,7 @@ export default function App() {
         </div>
       </main>
 
-      {/* --- FLOATING BOTTOM NAV --- */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-[420px]">
-        <div className="clay clay-pill px-4 py-3 flex items-center justify-between sm:gap-2">
-          
-          <button 
-            onClick={() => setActiveNav('home')}
-            className={`p-4 rounded-full clay-interactive ${activeNav === 'home' ? 'clay-inset text-[#8c52ff]' : 'text-[#8f7eaf] hover:text-[#4a3b69]'}`}
-          >
-            <Home className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={() => setActiveNav('projects')}
-            className={`p-4 rounded-full clay-interactive ${activeNav === 'projects' ? 'clay-inset text-[#8c52ff]' : 'text-[#8f7eaf] hover:text-[#4a3b69]'}`}
-          >
-            <BarChart2 className="w-6 h-6" />
-          </button>
-          
-          {/* Prominent Primary Action Button */}
-          <button className="relative -mt-12 w-20 h-20 rounded-full bg-gradient-to-br from-[#b490ff] to-[#8c52ff] flex items-center justify-center text-white shadow-[0_15px_30px_rgba(140,82,255,0.4),inset_2px_2px_10px_rgba(255,255,255,0.6)] border-4 border-[#ebe6f5] hover:scale-105 active:scale-95 transition-transform duration-300">
-            <Mail className="w-8 h-8 drop-shadow-md" />
-          </button>
-          
-          <button 
-            onClick={() => setActiveNav('about')}
-            className={`p-4 rounded-full clay-interactive ${activeNav === 'about' ? 'clay-inset text-[#8c52ff]' : 'text-[#8f7eaf] hover:text-[#4a3b69]'}`}
-          >
-            <Settings className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={() => setActiveNav('contact')}
-            className={`p-4 rounded-full clay-interactive ${activeNav === 'contact' ? 'clay-inset text-[#8c52ff]' : 'text-[#8f7eaf] hover:text-[#4a3b69]'}`}
-          >
-            <Users className="w-6 h-6" />
-          </button>
-          
-        </div>
-      </div>
+
 
       {/* --- MOBILE MENU OVERLAY --- */}
       {isMobileMenuOpen && (
