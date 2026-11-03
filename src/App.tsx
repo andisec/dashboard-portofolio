@@ -425,11 +425,11 @@ export default function App() {
           
           {/* User Profile Area */}
           <div className="flex flex-col items-center mb-8 mt-4 text-center">
-            <div className="w-20 h-20 rounded-[28px] clay-sm flex items-center justify-center mb-4 p-1.5">
+            <div className="w-28 h-28 rounded-[32px] clay-sm flex items-center justify-center mb-4 p-2">
               <img 
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80" 
                 alt="Mia Profile" 
-                className="w-full h-full rounded-[22px] object-cover"
+                className="w-full h-full rounded-[26px] object-cover"
               />
             </div>
             <h2 className="text-xl font-black text-[#e8e0f5] tracking-tight">Mia Chen</h2>
